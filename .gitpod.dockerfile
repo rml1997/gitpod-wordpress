@@ -4,7 +4,7 @@
 FROM gitpod/workspace-mysql
 
 ### General Settings ###
-ENV PHP_VERSION="5.5.9"
+ENV PHP_VERSION="5"
 ENV APACHE_DOCROOT="public_html"
 
 ### Setups, Node, NPM ###
