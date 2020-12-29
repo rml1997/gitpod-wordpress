@@ -6,13 +6,13 @@ FROM gitpod/workspace-full:latest
 ### General Settings ###
 ENV PHP_VERSION="5.6"
 ENV APACHE_DOCROOT="public_html"
-ENV MYSQL_VERSION="5.7"
+ENV MYSQL_VERSION="5.7.32"
 
 USER root
 
 # Install MySQL
 RUN apt-get update \
- && apt-get install -y mysql-server=${MYSQL_VERSION}* \
+ && apt-get install -y mysql-server=${MYSQL_VERSION}-1ubuntu18.04 \
  && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* \
  && mkdir /var/run/mysqld \
  && chown -R gitpod:gitpod /etc/mysql /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
