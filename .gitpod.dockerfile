@@ -29,7 +29,7 @@ RUN apt-get update \
 # Install default-login for MySQL clients
 #COPY client.cnf /etc/mysql/mysql.conf.d/client.cnf
 
-COPY mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
+#COPY mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
 
 USER gitpod
 
