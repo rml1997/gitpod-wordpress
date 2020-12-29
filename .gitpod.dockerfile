@@ -14,6 +14,7 @@ USER gitpod
 RUN brew install mysql@5.7
 
 USER root
+RUN mkdir /etc/mysql/mysql.conf.d
 # Install our own MySQL config
 COPY mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
