@@ -78,10 +78,10 @@ RUN go get github.com/mailhog/MailHog && \
         php-xdebug && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* && \
     cat /home/gitpod/gitpod-wordpress/conf/php.ini >> /etc/php/${PHP_VERSION}/apache2/php.ini && \
-    echo >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
-    echo default-character-set = utf8 >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
-    echo collation-server = utf8mb4_unicode_ci >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
-    echo default-character-set = utf8 >> /etc/mysql/mysql.conf.d/mysql.cnf && \
+    #echo >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
+    #echo default-character-set = utf8 >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
+    #echo collation-server = utf8mb4_unicode_ci >> /etc/mysql/mysql.conf.d/mysqld.cnf && \
+    #echo default-character-set = utf8 >> /etc/mysql/mysql.conf.d/mysql.cnf && \
     ### Setup PHP in Apache ###
     a2dismod php* && \
     a2dismod mpm_* && \
