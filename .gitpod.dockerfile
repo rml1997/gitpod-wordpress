@@ -31,7 +31,7 @@ USER root
 #COPY mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
 
 USER gitpod
-RUN brew install mysql-server-5.7
+RUN brew install mysql@5.7
 RUN echo "/etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
 
 ### Setups, Node, NPM ###
