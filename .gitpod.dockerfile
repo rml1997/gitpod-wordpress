@@ -6,7 +6,7 @@ FROM gitpod/workspace-full:latest
 ### General Settings ###
 ENV PHP_VERSION="5.6"
 ENV APACHE_DOCROOT="public_html"
-ENV MYSQL_VERSION="5.7.32"
+ENV MYSQL_VERSION="5.7.31"
 
 USER root
 
