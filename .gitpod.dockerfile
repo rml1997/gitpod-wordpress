@@ -16,12 +16,12 @@ RUN brew install mysql@5.7
 USER root
 RUN mkdir /etc/mysql/mysql.conf.d
 # Install our own MySQL config
-COPY mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+ADD https://raw.githubusercontent.com/gitpod-io/workspace-images/master/mysql/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # Install default-login for MySQL clients
-COPY client.cnf /etc/mysql/mysql.conf.d/client.cnf
+ADD https://raw.githubusercontent.com/gitpod-io/workspace-images/master/mysql/client.cnf /etc/mysql/mysql.conf.d/client.cnf
 
-COPY mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
+ADD https://raw.githubusercontent.com/gitpod-io/workspace-images/master/mysql/mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
 
 RUN mkdir /var/run/mysqld \
 && chown -R gitpod:gitpod /etc/mysql /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
