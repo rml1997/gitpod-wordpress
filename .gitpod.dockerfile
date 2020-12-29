@@ -24,10 +24,10 @@ RUN apt-get update \
  #/var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
 
 # Install our own MySQL config
-COPY mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+#COPY mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # Install default-login for MySQL clients
-COPY client.cnf /etc/mysql/mysql.conf.d/client.cnf
+#COPY client.cnf /etc/mysql/mysql.conf.d/client.cnf
 
 COPY mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
 
