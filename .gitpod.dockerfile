@@ -10,28 +10,28 @@ ENV MYSQL_VERSION="5.7"
 
 USER root
 
-RUN export DEBIAN_FRONTEND=noninteractive \
- && echo mysql-apt-config mysql-apt-config/enable-repo select mysql-${MYSQL_VERSION}-dmr | sudo debconf-set-selections \
- && wget http://dev.mysql.com/get/mysql-apt-config_0.8.16-1_all.deb \
- && sudo dpkg --install mysql-apt-config_0.8.16-1_all.deb 
+#RUN export DEBIAN_FRONTEND=noninteractive \
+# && echo mysql-apt-config mysql-apt-config/enable-repo select mysql-${MYSQL_VERSION}-dmr | sudo debconf-set-selections \
+# && wget http://dev.mysql.com/get/mysql-apt-config_0.8.16-1_all.deb \
+# && sudo dpkg --install mysql-apt-config_0.8.16-1_all.deb 
 
 # Install MySQL
-RUN apt-get update \
- && apt-get install -y mysql-server \
- && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* \
- && mkdir /var/run/mysqld \
- && chown -R gitpod:gitpod /etc/mysql /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
+#RUN apt-get update \
+# && apt-get install -y mysql-server \
+# && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* \
+# && mkdir /var/run/mysqld \
+# && chown -R gitpod:gitpod /etc/mysql /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
 
 # Install our own MySQL config
-COPY mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+#COPY mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # Install default-login for MySQL clients
-COPY client.cnf /etc/mysql/mysql.conf.d/client.cnf
+#COPY client.cnf /etc/mysql/mysql.conf.d/client.cnf
 
-COPY mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
+#COPY mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
 
 USER gitpod
-
+RUN brew install mysql-server-5.7
 RUN echo "/etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
 
 ### Setups, Node, NPM ###
